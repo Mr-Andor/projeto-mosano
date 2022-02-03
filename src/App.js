@@ -1,30 +1,37 @@
 import "./App.css";
 import Box from "@mui/material/Box";
-import React, {useState, useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import DataInput from "./components/DataInput";
 import UserDataTable from "./components/UserDataTable";
 import MessageBox from "./components/MessageBox";
+import { useGridApiEventHandler } from "@mui/x-data-grid";
 
 const App = () => {
   let userData;
-  let renderBox = false;
 
   const [isFormSubmited, setFormSubmited] = useState(false);
 
-
   const getUserData = (params) => {
+    console.log(isFormSubmited)
     userData = { ...userData, ...params };
 
-    if(userData.isSubmited == true)
+    if(!isFormSubmited)
     {
-      setFormSubmited(true); 
-      //console.log(userData);
+      setFormSubmited(true)
+      userData.isSubmited = false;
+      console.log(isFormSubmited)
     }
-
-    //setFormSubmited(false);
   };
 
-
+  useEffect( () => { 
+    if(isFormSubmited)
+    {
+      console.log(userData);
+      //setFormSubmited(false);
+    }
+    
+  }, [isFormSubmited]);
+  
 
   return (
     <div className="App">
@@ -42,7 +49,7 @@ const App = () => {
 
         <UserDataTable />
 
-        {isFormSubmited && <MessageBox data={userData} />}
+       
 
         <div className="Author">
           <h3>André Lourenço</h3>
