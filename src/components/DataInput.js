@@ -14,7 +14,7 @@ import ValidateUser from "./ValidateUser";
 export default function DataInput(props) {
   //State & Ref Hooks
   const [country, setCountry] = useState("");
-
+  
   const handleCountryChange = (event) => setCountry(event.target.value);
 
   const countryInputRef = useRef();
@@ -47,9 +47,14 @@ export default function DataInput(props) {
 
   const getValidatedData = (params) => {
     returnUserData = { ...returnUserData, ...params };
-    returnUserData.isSubmited = true;
-    //console.log(returnUserData);
+
+    
+    if(returnUserData.name != undefined)
+      returnUserData.isSubmited = true;
+
+    // console.log(returnUserData);
     props.sendData(returnUserData);
+
   };
 
   return (
