@@ -1,0 +1,35 @@
+.DataInput {
+    text-align: left;
+    width: 50%;
+    max-width: fit-content;
+    margin: 0;
+    float: left;
+    
+  }
+
+.Input-Boxes{
+  padding-left: 60px;
+  padding-top: 8px;
+}
+
+.Box-Name {
+  padding-top: 40px;
+}
+
+.Box-Surname {
+  padding-top: 40px;
+}
+
+.Box-Country {
+  padding-top: 40px;
+}
+
+.Box-Birthday {
+  padding-top: 40px;
+}
+
+.Button-Save {
+  padding-left: 190px;
+  padding-top: 30px;
+}
+
